@@ -8,7 +8,7 @@ h1, h2, h3, h4{
 
 }
 
-.default {
+body.default {
     background-color: lightblue;
     font-family: Helvetica, impact, 'Times New Roman';
     }
