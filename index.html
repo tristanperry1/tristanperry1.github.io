@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h2>Rectangle Perimeter</h2>
+        <img src="/images/rectangle_perimeter.jpg" width="200" height="200">
+		<p>Result: <span id='PerimeterResult'></span></p>
+		<p><label for='length'>length:</label><input type='text' id='length'></p>
+		<p><label for='width'>width:</label><input type='text' id='width'></p>
+        <button onclick = Perimeter()>Calculate Perimeter</button>
+        <br><br>
+
+    <h2>Rectangle Area</h2>
+        <img src="/images/rectangle_area.jpg" width="200" height="200">
+		<p>Result: <span id='AreaResult'></span></p>
+		<p><label for='lengthArea'>length:</label><input type='text' id='lengthArea'></p>
+		<p><label for='widthArea'>width:</label><input type='text' id='widthArea'></p>
+        <button onclick = Area()>Calculate Perimeter</button>
+        <br><br>
+
+    <h2>Rectangle Volume</h2>
+        <img src="/images/rectangle_volume.jpg" width="200" height="200">
+		<p>Result: <span id='VolumeResult'></span></p>
+		<p><label for='lengthVolume'>length:</label><input type='text' id='lengthVolume'></p>
+		<p><label for='widthVolume'>width:</label><input type='text' id='widthVolume'></p>
+        <p><label for='Height'>width:</label><input type='text' id='Height'></p>
+        <button onclick = Volume()>Calculate Perimeter</button>
+
+</body>
+<script>
+    function Perimeter() {
+        let len = document.getElementById('length').value;
+        let wid = document.getElementById('width').value;
+        let result = 2*(len + wid);
+        document.getElementById('PerimeterResult').innerHTML = result;
+
+    }
+
+    function Area() {
+        let lenA = document.getElementById('lengthArea').value;
+        let widA = document.getElementById('widthArea').value;
+        let result = lenA * widA;
+        document.getElementById('AreaResult').innerHTML = result;
+    }
+
+    function Volume() {
+        let lenV = document.getElementById('lengthVolume').value;
+        let widV = document.getElementById('widthVolume').value;
+        let height = document.getElementById('Height').value;
+        let result = lenV * widV * height;
+        document.getElementById('VolumeResult').innerHTML = result;
+    }
+</script>
+</html>
