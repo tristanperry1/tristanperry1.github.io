@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Arithmatic mean calculator</title>
+</head>
+<body>
+    <h1>Data Entry</h1>
+    <input type="text" id="userInput" placeholder="Enter a number">
+    <button onclick="addValue()">Add Value</button>
+    <button onclick="removeValue()">Remove Value</button>
+    <p id="dataset">Dataset: []</p>
+    <button onclick = "computeMean()">Compute Mean</button>
+    <p id="mean">Mean:</p>
+
+    <script>
+        let dataset = [];
+
+        function addValue() {
+            let num = document.getElementById("userInput").value;
+            if (isNaN(num)) {
+                alert("number is not valid");
+                return;
+            }
+            dataset.push(num);
+            document.getElementById('dataset').textContent = "Dataset: [" + dataset.join(", ") + "]";
+            //computeMean();
+        }
+
+        function removeValue() {
+            let num = document.getElementById("userInput").value;
+            if (isNaN(num)) {
+                alert("number is not valid");
+                return;
+            }
+            let x = dataset.indexOf(num);
+            if (x === -1) {
+                alert("Number not found");
+                return;
+            }
+            dataset.splice(x, 1);
+            document.getElementById('dataset').textContent = "Dataset: [" + dataset.join(", ") + "]";
+            //computeMean();
+        }
+
+        function computeMean() {
+        let sum = 0;
+        alert("Mean");
+            if (dataset.length === 0) {
+                document.getElementById('mean'). textContent = "Mean: N/A";
+                return;
+            }
+
+            for (let i = 0; i < dataset.length; i++) {
+                sum = dataset[i];
+            }
+            let mean = sum / dataset.length;
+            document.getElementById('dataset').textContent = "Mean: " + mean;
+        }
+    </script>
+
+</body>
+</html>
