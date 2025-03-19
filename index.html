@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DOM Puzzle</title>
+        <style>
+            /* NOTE: Do NOT modify this stylesheet */
+            #puzzle {
+                width: 500px;
+                height: 500px;
+                border: 5px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- NOTE: Do NOT modify the body or div -->
+        <div id='puzzle'></div>
+
+        <script>
+            function createPuzzle() {
+                const puzzle = document.getElementById('puzzle');
+                puzzle.style.backgroundColor = '7338A0';
+                puzzle.style.display = 'flex';
+                puzzle.style.flexWrap = 'wrap';
+
+                const container = document.createElement('div');
+                container.style.display = 'flex';
+                container.style.flexDirection = 'column';
+
+                const row1 = document.createElement('div');
+                const row2 = document.createElement('div');
+                row1.style.display = 'flex';
+                row2.style.display = 'flex';
+
+                const boxLabels = [
+                { label: 'A', color: '#9455F4' },
+                { label: 'B', color: '#4A2B74' },
+                { label: 'C', color: '#594492' },
+                { label: 'D', color: '#854DDC' }
+                ];
+
+                boxLabels.forEach((boxLabel, index) => {
+                    const box = document.createElement('button');
+                    box.textContent = boxLabel.label;
+                    box.style.backgroundColor = boxLabel.color;
+                    box.style.width = '125px';
+                    box.style.height = '125px';
+                    box.style.border = '2px solid black';
+                    if (index < 2) {
+                        row1.appendChild(box);
+                    }
+                    else {
+                        row2.appendChild(box);
+                    }
+                });
+
+                container.appendChild(row1);
+                container.appendChild(row2);
+                puzzle.appendChild(container);
+
+                const blank = document.createElement('div');
+                blank.style.width = '250px';
+                blank.style.height = '250px';
+                blank.style.backgroundColor = '#7338A0';
+                puzzle.appendChild(blank);
+
+                const blank2 = document.createElement('div');
+                blank2.style.width = '250px';
+                blank2.style.height = '250px';
+                blank2.style.backgroundColor = '#7338A0';
+                puzzle.appendChild(blank2);
+
+                const grid = document.createElement('div');
+                grid.style.width = '250px';
+                grid.style.height = '250px';
+                grid.style.display = 'flex';
+                grid.style.flexWrap = 'wrap';
+                grid.style.backgroundColor = '#7338A0';
+                puzzle.appendChild(grid);
+
+                for (let i = 0; i < 100; i++) {
+                    const smallButton = document.createElement('button');
+                    smallButton.style.width = '25px';
+                    smallButton.style.height = '25px';
+                    smallButton.style.backgroundColor = '#C39CFE';
+                    grid.appendChild(smallButton);
+                }
+            }
+            createPuzzle();
+
+            const puzzleListener = document.getElementById("puzzle");
+            puzzleListener.addEventListener('mouseover', () => {
+                puzzleListener.style.border = '2px solid yellow';
+            });
+
+            puzzleListener.addEventListener('mouseleave', () => {
+                puzzleListener.style.border = '2px solid black';
+            });
+
+
+
+        </script>
+    </body>
+</html>
