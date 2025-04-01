@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>To-Do List</title>
+    <style>
+        body.light-mode { background-color: white; color: black; }
+        body.dark-mode { background-color: black; color: white; }
+    </style>
+</head>
+<body>
+    <h1>To-Do List</h1>
+    <p>Tasks added: <span id="count">0</span></p>
+    <input type="text" id="textInput">
+    <button id="addTask">Add task</button>
+    <ul id="list"></ul>
+    <p id="APIquote"></p>
+    <button id="darkMode">Dark Mode</button>
+    <script>
+        const tasklist = document.getElementById('taskList');
+        const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+        let count = sessionStorage.getItem('count') || 0;
+        document.getElementById('count').innerText = count;
+        tasks.forEach(task => addTask(task));
+
+        document.getElementById('addTask').addEventListener('click', () => {
+            const text = document.getElementById('textInput');
+            let newText = text.value.trim();
+            if (newText.value = '') {
+                alert('please input a task');
+            }
+            else {
+                tasks.push(newText);
+                localStorage.setItem('tasks', JSON.stringify(tasks));
+                addTask(newText);
+                text.value = '';
+                count++;
+                sessionStorage.setItem('count', count);
+                document.getElementById('count').innerText = count;
+            }
+        });
+
+        function addTask(task) {
+
+            const li = document.createElement('li');
+            li.textContent = task;
+            li.addEventListener('click', () => {
+                const tasklist = document.getElementById('taskList');
+                tasks.splice(tasks.indexOf(task), 1);
+                localStorage.setItem('tasks', JSON.stringify(tasks));
+                taskList.removeChild(li);
+            });
+            list.appendChild(li);
+
+        }
+
+        function getCookie(name) {
+            const cookieString = document.cookie.split('; ').find(pair => pair.startsWith(name + '='));
+            return cookieString ? cookieString.split('=')[1] : null;
+        }
+
+        document.getElementById('darkMode').addEventListener('click', () => {
+            const mode = document.body.classList.contains('dark-mode') ? 'dark-mode' : 'light-mode';
+            const newMode = document.body.className;
+            let change = getCookie("change");
+        });
+    </script>
+</body>
+</html>
