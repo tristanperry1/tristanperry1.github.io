@@ -1,8 +1,8 @@
 let data =
 [
-  {"title":  "Escape from Tarkov", "developer":  "Battlestate games", "price": 39.99, "image":  "images/game1.jpg"},
-  {"title":  "Rust", "developer":  "Facepunch", "price": 39.99, "image":  "images/game2.jpg"},
-  {"title":  "Dark Souls", "developer":  "From Software", "price": 39.99, "image":  "images/game3.jpg"}
+  {"title":  "Escape from Tarkov", "developer":  "Battlestate games", "price": 39.99, "image":  "game1.jpg"},
+  {"title":  "Rust", "developer":  "Facepunch", "price": 39.99, "image":  "game2.jpg"},
+  {"title":  "Dark Souls", "developer":  "From Software", "price": 39.99, "image":  "game3.jpg"}
 ];
 
 window.onload = function() {
